@@ -32,8 +32,9 @@
         background-color: red;
       }
       /* EX5) Write a selector to target the "even" links in the navbar */
-      .nav .p-2:nth-child(2n) {
+      .nav a:nth-child(2n) {
         color: white !important;
+        border: 2px dotted white;
       }
       /* EX6) Write a selector to target the last blog post */
       .container .blog-post:last-of-type {
@@ -405,10 +406,11 @@
           <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="#">Older</a>
             <a
-              class="btn btn-outline-secondary disabled"
+              class="btn btn-outline-secondary "
               href="#"
               tabindex="-1"
               aria-disabled="true"
+              onclick="newerButton()"
               >Newer</a
             >
           </nav>
@@ -484,8 +486,9 @@
         
       }
       //     EX12) Write a function to change the color of the main title
-        function mainTitle(color){
-          
+        function mainTitle(){
+          let h1 = document.getElementsByTagName("h1")[0];
+          h1.style.color = "pink";
         }
       //     EX13) Write a function to change the background of the jumbotron
       function jumbotron(){
@@ -515,9 +518,23 @@
                 }
       //     EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
                 function trim(){
+                    let blogPost = document.querySelectorAll(".blog-post");
+                   for(let i = 0; i<blogPost.length; i++){
+                       
+                    }
                     
                 }
       //     EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
+                function newerButton(){
+                    let div = document.createElement('div');
+                    let title =document.createElement("h2");
+                    let blog = document.querySelector(".container > .row");
+                    div.setAttribute("class", "blog-post");
+                    title.setAttribute("class", "blog-post-title");
+                    title.innerText = "Donkanfkadkfaskfakjfanfkajnj"
+                    div.appendChild(title);
+                    blog.appendChild(div)
+                }
       //     EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
       //     EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
       //
